@@ -1,0 +1,65 @@
+<meta charset="utf-8">
+<html>
+    <head>
+        <title>Mi encriptador</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+   <strong><em><h4><center>"Mi encriptador"</center></h4></em></strong>
+   <center><input id="texto1"></input></center>
+   <center><button id="boton1">Encriptar</button></center>
+   <br></br>
+   <center><input id="texto2"></input></center>
+   <center><button id="boton2">Desencirptar</button></center>
+
+   <script>
+	var guardatexto;
+    var guardatexto2;
+	
+    function encripta() {
+            const frase = document.querySelector("#texto1").value;
+            var texto = frase.replace(/e/g, "enter").replace(/i/gi, "imes").replace(/a/g, "ai").replace(/o/gi, "ober").replace(/u/gi, "ufat");
+            return texto;
+	}
+
+	function desencripta(valor)
+	{
+		var desencriptador = valor;
+		var descifrado = desencriptador.replace(/ai/g, "a").replace(/enter/gi, "e").replace(/imes/g, "i").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+        return descifrado;
+	}
+    
+    function CE()
+    {
+        guardatexto = encripta();
+        if(guardatexto != "")
+        {
+        	document.querySelector("#texto2").value = guardatexto;
+        	document.querySelector("#texto1").value = "";
+        	guardatexto2 = "";
+        }
+    }
+
+    function CD()
+    {
+        guardatexto2 = desencripta(guardatexto);
+        if(guardatexto2 != "")
+        {
+           document.querySelector("#texto1").value = guardatexto2;
+           document.querySelector("#texto2").value = "";
+           guardatexto = "";
+        }
+    }
+
+        var b1 = document.querySelector("#boton1");
+        b1.onclick = CE;
+        var b2 = document.querySelector("#boton2");   
+        b2.onclick = CD;     
+
+        
+</script>
+
+
+    </body>
+</html>
